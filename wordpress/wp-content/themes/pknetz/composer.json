@@ -1,0 +1,19 @@
+{
+    "name": "timot/pknetz",
+    "description": "WordPress Theme for 'PK-Netz 2. Säule - Die BVG-Plattform der Arbeitnehmenden' (https://pk-netz.ch/)",
+    "type": "wordpress-theme",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "timothyoesch",
+            "email": "54284649+timothyoesch@users.noreply.github.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.4",
+        "pecee/simple-router": "4.3.7.2",
+        "matomo/matomo-php-tracker": "^3.0",
+        "mautic/api-library": "^3.1",
+        "foroco/php-browser-detection": "^2.3"
+    }
+}
