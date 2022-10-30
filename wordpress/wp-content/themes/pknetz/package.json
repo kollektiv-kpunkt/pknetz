@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "feather-icons": "^4.29.0",
-    "normalize.css": "^8.0.1",
     "js-cookie": "^3.0.1",
+    "normalize.css": "^8.0.1",
     "uuid": "^8.3.2",
     "vanilla-cookieconsent": "^2.8.0",
     "when-in-viewport": "^2.0.4"

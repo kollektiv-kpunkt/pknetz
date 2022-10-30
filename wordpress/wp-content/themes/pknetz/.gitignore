@@ -1,6 +1,7 @@
-# obb
+# pknetz
 /lib/acf/*
 !/lib/acf/acf-json
+/dist
 
 # Composer
 /vendor
