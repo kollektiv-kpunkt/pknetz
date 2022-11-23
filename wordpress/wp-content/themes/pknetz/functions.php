@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
+use Ramsey\Uuid\Uuid;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->safeLoad();
 
@@ -31,6 +32,8 @@ function pknetz_theme_support() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'editor-styles' );
     add_editor_style('dist/bundle.min.css' );
+    add_post_type_support( 'page', 'excerpt' );
+    add_post_type_support( 'post', 'excerpt' );
 }
 add_action( 'after_setup_theme', 'pknetz_theme_support' );
 
@@ -92,6 +95,39 @@ function pknetz_acf() {
         'supports'          => array("anchor" => false)
     ));
 
+    acf_register_block_type(array(
+        'name'              => 'frontpage-blogs',
+        'title'             => __('Frontpage Blogs'),
+        'description'       => __('Blogs on Frontpage'),
+        'render_template'   => 'template-parts/blocks/frontpage-blogs.php',
+        'category'          => 'pknetz',
+        'icon'              => '',
+        'keywords'          => array("blogs", "frontpage"),
+        'supports'          => array('anchor' => true)
+    ));
+
+    acf_register_block_type(array(
+        'name'              => 'frontpage-events',
+        'title'             => __('Frontpage Events'),
+        'description'       => __('Events on Frontpage'),
+        'render_template'   => 'template-parts/blocks/frontpage-events.php',
+        'category'          => 'pknetz',
+        'icon'              => '',
+        'keywords'          => array("events", "frontpage"),
+        'supports'          => array('anchor' => true,)
+    ));
+
+    acf_register_block_type(array(
+        'name'              => 'frontpage-newsletter',
+        'title'             => __('Frontpage Newsletter'),
+        'description'       => __('Newsletter Bar for Frontpage'),
+        'render_template'   => 'template-parts/blocks/frontpage-newsletter.php',
+        'category'          => 'pknetz',
+        'icon'              => '',
+        'keywords'          => array("newsletter", "frontpage"),
+        'supports'          => array('anchor' => true,)
+    ));
+
     // (Optional) Hide the ACF admin menu item.
     // add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
     // function my_acf_settings_show_admin( $show_admin ) {
@@ -99,6 +135,32 @@ function pknetz_acf() {
     // }
 }
 pknetz_acf();
+
+add_filter( 'render_block', 'pkn_wrap_blocks', 10, 2 );
+
+function pkn_wrap_blocks( $block_content, $block ) {
+    $skip = [
+        "core/columns"
+    ];
+    if ( strpos($block["blockName"], "core/") !== false && !in_array($block["blockName"], $skip) ) {
+        $block_content = "<div class='md-container mx-auto' data-block-name='{$block["blockName"]}'>" . $block_content . "</div>";
+    }
+    return $block_content;
+}
+
+// Widgets
+
+function pkn_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Footer Widget',
+		'id'            => 'footer_widget',
+		'before_widget' => '<div class="pkn-footer-widget">',
+		'after_widget'  => '</div>'
+	) );
+
+}
+add_action( 'widgets_init', 'pkn_widgets_init' );
 
 // HTAccess
 function pkn_htaccess( $rules ) {
@@ -113,3 +175,37 @@ function pkn_htaccess( $rules ) {
     return $content . $rules;
 }
 add_filter('mod_rewrite_rules', 'pkn_htaccess');
+
+// Hooks
+
+function pkn_set_event_hash($post_id, $post, $update) {
+    if ( $post->post_type == 'tribe_events' && empty(get_post_meta($post_id, 'hash_set')) ) {
+        $uuid = Uuid::uuid4();
+        update_field('event_hash', $uuid->toString(), $post_id);
+        update_post_meta( $post_id, 'hash_set', true );
+    }
+}
+add_action( 'wp_insert_post', 'pkn_set_event_hash', 10, 3 );
+
+
+
+// Shortcodes
+function pkn_hidden_eventdetails_shortcode($atts, $content = null) {
+    global $post;
+    ob_start();
+    if (isset($_GET["event_invitation"]) && $_GET["event_invitation"] == get_field('event_hash', $post->ID)) {
+        return $content;
+    }
+    return ob_get_clean();
+}
+
+add_shortcode('pkn-events-details', 'pkn_hidden_eventdetails_shortcode');
+
+function pkn_some_shortcode($atts, $content = null) {
+    global $post;
+    ob_start();
+    get_template_part( "template-parts/elements/some-icons");
+    return ob_get_clean();
+}
+
+add_shortcode('pkn-some-icons', 'pkn_some_shortcode');

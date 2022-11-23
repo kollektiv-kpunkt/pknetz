@@ -63,3 +63,8 @@
   --grey-10: #F6F6F6;
   --grey-slight: #FAFAFA;
 }
+
+::selection {
+  color: var(--primary-120);
+  background: var(--primary-50);
+}

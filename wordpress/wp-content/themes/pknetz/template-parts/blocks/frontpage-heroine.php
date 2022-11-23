@@ -60,11 +60,16 @@
                 <?php
                 $i = 1;
                 foreach ($buttons as $button) :
+                    if ($button["type"] == "page") {
+                        $url = get_permalink($button["page"]->ID);
+                    } else {
+                        $url = $button["link"];
+                    }
                 ?>
                 <div class="pkn-fp-button-wrapper">
                     <div class="pkn-fp-button">
                         <div class="pkn-fp-button-inner">
-                            <a href="<?= get_permalink($button["page"]->ID) ?>" data-button-id="<?= $i ?>">
+                            <a href="<?= $url ?>" data-button-id="<?= $i ?>">
                                 <div class="pkn-fp-button-icon">
                                     <div class="pkn-fp-button-feather" data-feather="<?= $button["icon"] ?>"></div>
                                 </div>

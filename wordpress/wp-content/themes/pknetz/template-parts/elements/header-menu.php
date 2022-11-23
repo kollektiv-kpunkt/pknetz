@@ -31,7 +31,7 @@
                 wp_nav_menu( array(
                     "theme_location" => "pkn-main-nav",
                     "container" => "ul",
-                    "menu_class" => "pkn-main-nav flex gap-x-3 justify-between mt-6",
+                    "menu_class" => "pkn-main-nav flex gap-x-3 justify-between mt-6 pkn-menu",
                 ) );
                 ?>
             </div>

@@ -1,3 +1,8 @@
+/wp-content/backups-dup-lite/
+/wp-content/maintenance/
+/wp-content/maintenance.php
+
+
 # Wordpress - ignore core, configuration, examples, uploads and logs.
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
 

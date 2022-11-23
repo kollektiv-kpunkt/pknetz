@@ -1,6 +1,25 @@
 module.exports = {
   content: require("fast-glob").sync(["./**/*.php", "*.php"]),
-  safelist: [],
+  safelist: [
+    {
+      pattern: /text-(lg|sm|xs|[1-9]xl)/,
+      pattern: /[a-zA-Z1-9_]+-primary-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-primary/,
+      pattern: /primary-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-primary-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-primary/,
+      pattern: /primary-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-secondary-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-secondary/,
+      pattern: /secondary-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-accent-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-accent/,
+      pattern: /accent-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-grey-[a-zA-Z1-9_]+/,
+      pattern: /[a-zA-Z1-9_]+-grey/,
+      pattern: /grey-[a-zA-Z1-9_]+/,
+    },
+  ],
   theme: {
     extend: {
       colors: {

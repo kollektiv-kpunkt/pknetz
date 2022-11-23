@@ -171,13 +171,46 @@
             "rows_per_page": 20,
             "sub_fields": [
                 {
+                    "key": "field_636d3de833244",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "link": "Link",
+                        "page": "Page"
+                    },
+                    "default_value": "page",
+                    "return_format": "value",
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "layout": "vertical",
+                    "save_other_choice": 0,
+                    "parent_repeater": "field_635e47023414d"
+                },
+                {
                     "key": "field_635e48b43414e",
                     "label": "Page",
                     "name": "page",
                     "type": "post_object",
                     "instructions": "",
                     "required": 1,
-                    "conditional_logic": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_636d3de833244",
+                                "operator": "==",
+                                "value": "page"
+                            }
+                        ]
+                    ],
                     "wrapper": {
                         "width": "",
                         "class": "",
@@ -189,6 +222,31 @@
                     "multiple": 0,
                     "allow_null": 0,
                     "ui": 1,
+                    "parent_repeater": "field_635e47023414d"
+                },
+                {
+                    "key": "field_636d3dda33243",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_636d3de833244",
+                                "operator": "==",
+                                "value": "link"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
                     "parent_repeater": "field_635e47023414d"
                 },
                 {
@@ -543,5 +601,5 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1667124738
+    "modified": 1668103749
 }

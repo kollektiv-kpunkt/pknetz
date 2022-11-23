@@ -8,7 +8,7 @@
     wp_head();
     ?>
 </head>
-<body>
+<body <?= body_class(  ) ?>>
     <?php
     get_template_part( "template-parts/elements/header-menu" );
     ?>

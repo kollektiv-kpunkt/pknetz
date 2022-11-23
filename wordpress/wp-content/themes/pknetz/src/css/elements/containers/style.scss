@@ -1,5 +1,12 @@
 .md-container {
-    width: 90%;
-    max-width: 1450px;
-    margin: 0 auto;
+  width: 90%;
+  max-width: 1250px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.md-container .md-container,
+#tribe-events-pg-template .md-container,
+.tribe-events-pg-template .md-container {
+  width: 100%;
 }
