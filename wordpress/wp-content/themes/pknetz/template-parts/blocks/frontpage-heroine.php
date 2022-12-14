@@ -69,7 +69,7 @@
                 <div class="pkn-fp-button-wrapper">
                     <div class="pkn-fp-button">
                         <div class="pkn-fp-button-inner">
-                            <a href="<?= $url ?>" data-button-id="<?= $i ?>">
+                            <a class="pkn-noline" href="<?= $url ?>" data-button-id="<?= $i ?>">
                                 <div class="pkn-fp-button-icon">
                                     <div class="pkn-fp-button-feather" data-feather="<?= $button["icon"] ?>"></div>
                                 </div>

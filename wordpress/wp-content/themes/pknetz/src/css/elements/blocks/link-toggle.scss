@@ -1,0 +1,36 @@
+.pkn-link-toggle-outer {
+
+    .pkn-link-toggle-inner {
+        border-top: 2px solid #000000;
+        border-bottom: 2px solid #000000;
+
+        .pkn-link-toggle-content a p {
+            max-width: 80%;
+        }
+    }
+
+    &.text-white {
+        .pkn-link-toggle-inner {
+            border-color: #ffffff;
+        }
+    }
+
+    &+& {
+        margin-top: -2px;
+    }
+
+    svg.feather {
+        transition: 0.125s ease-in-out transform;
+    }
+
+    &:hover svg.feather {
+
+        &.feather-download {
+            transform: scale(1.1);
+        }
+
+        &.feather-chevron-right {
+            transform: translateX(0.5rem);
+        }
+    }
+}

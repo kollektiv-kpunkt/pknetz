@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <?php language_attributes(); ?>>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +7,19 @@
     <?php
     wp_head();
     ?>
+    <script src="<?= get_template_directory_uri(  ) ?>/public/hyphenation/Hyphenopoly_Loader.js"></script>
+        <script>
+        Hyphenopoly.config({
+            require: {
+                "de-ch": "FORCEHYPHENOPOLY",
+            },
+            setup: {
+                selectors: {
+                    "#main-content": {}
+                }
+            }
+        });
+        </script>
 </head>
 <body <?= body_class(  ) ?>>
     <?php

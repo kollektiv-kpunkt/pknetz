@@ -12,7 +12,7 @@ $events = tribe_get_events(array("start_date" => date('Y-m-d', time()), "end_dat
             <?php
             foreach($events as $event) :
             ?>
-            <a href="<?= get_the_permalink($event->ID) ?>" class="pkn-events-fp-card p-6">
+            <a href="<?= get_the_permalink($event->ID) ?>" class="pkn-events-fp-card p-6 pkn-noline">
                 <h3 class="pkn-events-fp-card-title text-2xl normal-case max-w-xs mb-2"><?= $event->post_title ?></h3>
                 <p class="pkn-events-fp-card-date text-xl"><?= date("j. F", strtotime($event->event_date)) ?></p>
             </a>

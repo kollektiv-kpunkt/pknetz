@@ -1,12 +1,16 @@
 .md-container {
-  width: 90%;
-  max-width: 1250px;
-  margin-left: auto !important;
-  margin-right: auto !important;
+    width: 90%;
+    max-width: 1250px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.pkn-page-wrapper {
+    max-width: 780px;
 }
 
 .md-container .md-container,
 #tribe-events-pg-template .md-container,
 .tribe-events-pg-template .md-container {
-  width: 100%;
+    width: 100%;
 }

@@ -1,0 +1,31 @@
+.pkn-frontpage-blog-card {
+  box-shadow:
+    2px 0 0 0 var(--grey-120),
+    /* Just to fix the corner */
+    2px 0 0 0 var(--grey-120) inset,
+    0 2px 0 0 var(--grey-120) inset;
+
+  .pkn-frontpage-blog-card-link {
+    &::after {
+      content: ">";
+      display: inline-flex;
+      margin-left: 0.25em;
+    }
+  }
+
+  @media (max-width: 1080px) {
+    & {
+      width: 50%;
+
+      &:nth-child(3) {
+        width: 100%;
+      }
+    }
+  }
+
+  @media (max-width: 780px) {
+    & {
+      width: 100%;
+    }
+  }
+}

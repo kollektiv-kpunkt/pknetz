@@ -1,40 +1,61 @@
 /* Fixes for Plugin Design */
 
 :root {
-  --tec-font-family-sans-serif: "Futura";
-  --tec-color-accent-primary: var(--primary);
-  --tec-color-link-accent: var(--primary);
-  --tec-grid-width: calc(1250px + (2 * var(--tec-grid-gutter-page)));
+    --tec-font-family-sans-serif: "Futura";
+    --tec-color-accent-primary: var(--primary);
+    --tec-color-link-accent: var(--primary);
+    --tec-grid-width: calc(1250px + (2 * var(--tec-grid-gutter-page)));
 }
 
 
 .single-tribe_events .tribe-events .tribe-events-c-subscribe-dropdown__container,
 .tribe-block__events-link .tribe-events .tribe-events-c-subscribe-dropdown__container,
 .tribe-block__events-link .tribe-events-c-subscribe-dropdown__button {
-  width: 350px;
+    width: 350px;
 }
 
 .tribe-events-sub-nav li a {
-  @media (max-width: 768px) {
-    background-color: var(--primary-20);
-  }
+    @media (max-width: 768px) {
+        background-color: var(--primary-20);
+    }
 }
 
 #tribe-events-pg-template,
 .tribe-events-pg-template {
-  max-width: calc(1250px + (2 * 20px));
-  padding: 40px 20px 20px;
+    max-width: calc(1250px + (2 * 20px));
+    padding: 40px 20px 20px;
+}
+
+.tribe-block__venue.tribe-block__venue--has-map {
+    justify-content: space-between;
 }
 
 @media screen and (min-width: 768px) {
 
-  .tribe-block__venue.tribe-block__venue--has-map .tribe-block__venue__map {
-    width: calc(65% - 20px);
-  }
+    .tribe-block__venue.tribe-block__venue--has-map .tribe-block__venue__map {
+        width: calc(50% - 20px);
+    }
 }
 
 .tribe-events-notices {
-  background: var(--primary-20);
-  border: 1px solid var(--primary-60);
-  color: var(--primary-120);
+    background: var(--primary-20);
+    border: 1px solid var(--primary-60);
+    color: var(--primary-120);
+}
+
+.tribe-events,
+.tribe-events-pg-template {
+    a {
+        color: inherit !important;
+        background-image: none !important;
+
+        &:hover {
+            color: inherit !important;
+            background-image: none !important
+        }
+    }
+}
+
+.tribe-events-single .tribe_events {
+    max-width: 780px;
 }

@@ -1,0 +1,39 @@
+// Pageheroine
+
+.pkn-page-imageheroine-outer {
+    padding-bottom: calc(100% / 16 * 5);
+
+    @media (max-width: 980px) {
+        padding-bottom: calc(100% / 16 * 10);
+    }
+
+    >* {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pkn-page-imageheroine-image-wrapper {
+
+        img,
+        .pkn-page-imageheroine-image-overlay {
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .pkn-page-imageheroine-image-overlay {
+            background: linear-gradient(rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.75) 100%);
+        }
+    }
+
+    .pkn-page-imageheroine-title-wrapper {
+        display: flex;
+        align-items: flex-end;
+    }
+}
