@@ -8,7 +8,7 @@ if ($post->post_parent != 0) {
 } else {
     $siblings = array();
 }
-$children = get_pages( array( 'child_of' => $post->ID, 'sort_column' => 'menu_order' ) );
+$children = get_pages( array( 'child_of' => $post->ID, 'parent' => $post->ID, 'sort_column' => 'menu_order' ) );
 
 if (count($siblings) != 0) {
     get_template_part( "template-parts/elements/children-nav", null, array( "children" => $siblings ));
