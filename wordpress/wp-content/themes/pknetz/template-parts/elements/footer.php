@@ -8,6 +8,6 @@
 
 <div class="pkn-bottombar-outer bg-primary-140 text-white py-4">
     <div class="pkn-bottombar-inner md-container">
-        <a href="/impressum">Impressum</a> | <a href="/datenschutz">Datenschutz</a> | <a href="https://kpunkt.ch" target="_blank">K.</a>
+        <a class="pkn-noline" href="/impressum">Impressum</a> | <a class="pkn-noline" href="/datenschutz">Datenschutz</a> | <a class="pkn-noline" href="https://kpunkt.ch" target="_blank">K.</a>
     </div>
 </div>

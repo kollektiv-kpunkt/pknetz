@@ -41,6 +41,7 @@
         .pkn-children-nav-mobile-content-wrapper {
             max-height: 0;
             overflow-y: hidden;
+            transition: 0.3s ease-in-out max-height;
         }
     }
 }

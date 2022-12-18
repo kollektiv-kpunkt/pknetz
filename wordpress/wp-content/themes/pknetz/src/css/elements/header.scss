@@ -57,12 +57,25 @@ ul.pkn-main-nav {
 
     .pkn-nav-mobile[hidden] {
         display: block;
+
+        svg {
+            transition: 0.3s ease-in-out transform;
+        }
+
+        .pkn-nav-mobile-toggle {
+            &__open {
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
     }
 }
 
 .pkn-nav-mobile-lower-content {
     max-height: 0;
     overflow-y: hidden;
+    transition: 0.3s ease-in-out max-height;
 }
 
 .pkn-main-logo {

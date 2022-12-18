@@ -15,7 +15,7 @@ function pknetz_BrowserClass() {
 /* pknetz */
 global $scriptVersion;
 if ($_ENV["DEV"] == 1) {
-    $scriptVersion = microtime();
+    $scriptVersion = time();
 } else {
     $scriptVersion = wp_get_theme( )->get( 'Version' );
 }
@@ -32,6 +32,7 @@ function pknetz_theme_support() {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'editor-styles' );
     add_editor_style('dist/bundle.min.css' );
+    add_editor_style('wordpress/gutenberg-fixes.css' );
     add_post_type_support( 'page', 'excerpt' );
     add_post_type_support( 'post', 'excerpt' );
 }
@@ -118,6 +119,17 @@ function pknetz_acf() {
     ));
 
     acf_register_block_type(array(
+        'name'              => 'frontpage-actares',
+        'title'             => __('Frontpage Actares'),
+        'description'       => __('Actares recommendations on Frontpage'),
+        'render_template'   => 'template-parts/blocks/frontpage-actares.php',
+        'category'          => 'pknetz',
+        'icon'              => '',
+        'keywords'          => array("actares", "frontpage"),
+        'supports'          => array('anchor' => true,)
+    ));
+
+    acf_register_block_type(array(
         'name'              => 'frontpage-newsletter',
         'title'             => __('Frontpage Newsletter'),
         'description'       => __('Newsletter Bar for Frontpage'),
@@ -136,6 +148,17 @@ function pknetz_acf() {
         'category'          => 'pkn',
         'icon'              => '',
         'keywords'          => array("link", "toggle", "arrow"),
+        'supports'          => array( 'anchor' => true )
+    ));
+
+    acf_register_block_type(array(
+        'name'              => 'article-list',
+        'title'             => __('Article List'),
+        'description'       => __('List of articles with image, excerpt and link'),
+        'render_template'   => 'template-parts/blocks/article-list.php',
+        'category'          => 'pkn',
+        'icon'              => '',
+        'keywords'          => array("article", "list", "image", "excerpt", "link"),
         'supports'          => array( 'anchor' => true )
     ));
 
@@ -348,7 +371,7 @@ function the_breadcrumb($args = array())
             if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) {
                 echo ' (';
             }
-            echo __('Page') . ' ' . get_query_var('paged');
+            echo __(' Seite') . ' ' . get_query_var('paged');
             if (is_category() || is_day() || is_month() || is_year() || is_search() || is_tag() || is_author()) {
                 echo ')';
             }

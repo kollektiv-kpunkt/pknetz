@@ -26,18 +26,20 @@ global $post;
             <i data-feather="more-horizontal" class="h-4 w-4 mt-1"></i>
         </div>
         <div class="pkn-children-nav-mobile-content-wrapper">
-            <div class="pkn-children-nav-mobile-content flex flex-col gap-y-2 mt-4 text-white bg-primary p-2">
+            <div class="pkn-children-nav-mobile-content flex">
+                <div class="pkn-children-nav-mobile-content-inner flex flex-col gap-y-2 mt-4 text-white">
                 <?php
                 foreach ($children as $child) :
                 ?>
                 <a href="<?= get_permalink( $child->ID ) ?>" class="pkn-children-nav-item pkn-noline<?= ($child->ID == $post->ID) ? " pkn-children-nav-item-current" : "" ?>">
-                    <div class="pkn-children-nav-item-inner">
+                    <div class="pkn-children-nav-item-inner bg-primary p-2 w-fit">
                         <p><?= $child->post_title ?></p>
                     </div>
                 </a>
                 <?php
                 endforeach;
                 ?>
+                </div>
             </div>
         </div>
     </div>
