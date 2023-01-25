@@ -7,13 +7,13 @@
                     $icons = pkn_menu_items("pkn-some-icons");
                     foreach ($icons as $icon) :
                     ?>
-                    <div class="pkn-some-icon-wrapper text-primary flex<?= ($icon->classes != "") ? " " . implode(" ", $icon->classes) : ""; ?>">
+                    <a href="<?= $icon->url ?>" class="pkn-some-icon-wrapper pkn-some-link pkn-noline text-primary flex<?= ($icon->classes != "") ? " " . implode(" ", $icon->classes) : ""; ?>">
                         <div class="pkn-some-icon flex p-1 border-2 border-primary rounded-full">
-                            <a href="<?= $icon->url ?>" class="pkn-some-link text-primary p-0 pkn-noline">
+                            <div class="p-0">
                                 <div class="pkn-some-icon-svg h-3 w-3" data-feather="<?= $icon->title ?>"></div>
-                            </a>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                     <?php
                     endforeach;
                     ?>

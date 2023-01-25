@@ -162,6 +162,17 @@ function pknetz_acf() {
         'supports'          => array( 'anchor' => true )
     ));
 
+    acf_register_block_type(array(
+        'name'              => 'event-signup',
+        'title'             => __('Event Signup Form'),
+        'description'       => __('Form to signup for the current event'),
+        'render_template'   => 'template-parts/blocks/event-signup.php',
+        'category'          => 'pknetz',
+        'icon'              => '',
+        'keywords'          => array("event", "signup", "form"),
+        'supports'          => array('anchor' => true)
+    ));
+
     // (Optional) Hide the ACF admin menu item.
     // add_filter('acf/settings/show_admin', 'my_acf_settings_show_admin');
     // function my_acf_settings_show_admin( $show_admin ) {

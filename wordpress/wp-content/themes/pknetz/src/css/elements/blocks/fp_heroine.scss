@@ -1,154 +1,167 @@
 .pkn-fp-carousel-outer {
 
-    .pkn-fp-carousel-slides {
-        padding-bottom: 60vh;
-        filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
+  .pkn-fp-carousel-slides {
+    padding-bottom: 60vh;
+    filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
+  }
+
+  .pkn-fp-slide {
+    height: 100%;
+    width: 100%;
+    transform: translateX(100%);
+    transition: 0.5s ease-in-out transform, 0.5s ease-in-out visibility;
+    visibility: hidden;
+
+    &.pkn-slide-active {
+      transform: translateX(0);
+      visibility: visible;
     }
 
-    .pkn-fp-slide {
+    &.pkn-slide-past {
+      transform: translateX(-100%);
+      visibility: hidden;
+    }
+
+    .pkn-fp-slide-image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+
+      img {
         height: 100%;
         width: 100%;
-
-        .pkn-fp-slide-image {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0;
-
-            img {
-                height: 100%;
-                width: 100%;
-                object-fit: cover;
-            }
-        }
-
-        .pkn-fp-slide-overlay {
-            background-color: var(--primary-160);
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            opacity: 0.5;
-            mix-blend-mode: multiply;
-            opacity: 0;
-        }
-
-        .pkn-fp-slide-title {
-            position: absolute;
-            top: 1rem;
-            left: 1rem;
-            opacity: 0;
-            max-width: calc(100% - 2rem);
-        }
-
-        &.pkn-slide-active {
-
-            .pkn-fp-slide-image,
-            .pkn-fp-slide-title {
-                opacity: 1;
-            }
-
-            .pkn-fp-slide-overlay {
-                opacity: 0.5;
-            }
-        }
+        object-fit: cover;
+      }
     }
 
-    .pkn-fp-pagination {
-        @media (max-width: 1400px) {
-            display: none;
-        }
-
-        display: flex;
-        margin-left: 1rem;
-        column-gap: 0.25rem;
-        margin-top: 0.25rem;
-
-        .pkn-fp-pagination-item {
-            width: 1rem;
-            height: 0.15rem;
-            background: #626262;
-            cursor: pointer;
-
-            &.pkn-pagination-item-active {
-                background-color: var(--primary);
-            }
-        }
+    .pkn-fp-slide-overlay {
+      background-color: var(--primary-160);
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      opacity: 0;
     }
+
+    .pkn-fp-slide-title {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      opacity: 0;
+      max-width: calc(100% - 2rem);
+    }
+
+    &.pkn-slide-active {
+
+      .pkn-fp-slide-image,
+      .pkn-fp-slide-title {
+        opacity: 1;
+      }
+
+      .pkn-fp-slide-overlay {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .pkn-fp-pagination {
+    @media (max-width: 1400px) {
+      display: none;
+    }
+
+    display: flex;
+    margin-left: 1rem;
+    column-gap: 0.25rem;
+    margin-top: 0.25rem;
+
+    .pkn-fp-pagination-item {
+      width: 1rem;
+      height: 0.15rem;
+      background: #626262;
+      cursor: pointer;
+
+      &.pkn-pagination-item-active {
+        background-color: var(--primary);
+      }
+    }
+  }
 }
 
 .pkn-fp-buttons-wrapper {
 
-    --cols: var(--buttons);
-    --gap: 1rem;
+  --cols: var(--buttons);
+  --gap: 1rem;
 
-    @media (max-width: 1080px) {
-        --cols: 2;
-    }
+  @media (max-width: 1080px) {
+    --cols: 2;
+  }
 
-    @media (max-width: 780px) {
-        --cols: 1;
-        --gap: 1.5rem;
-    }
+  @media (max-width: 780px) {
+    --cols: 1;
+    --gap: 1.5rem;
+  }
 
 
-    .pkn-fp-buttons-inner {
-        margin-top: max(-180px, -14%);
-        flex-wrap: wrap;
-        gap: var(--gap);
-    }
+  .pkn-fp-buttons-inner {
+    margin-top: max(-180px, -14%);
+    flex-wrap: wrap;
+    gap: var(--gap);
+  }
 
-    .pkn-fp-button-wrapper {
+  .pkn-fp-button-wrapper {
 
-        width: calc((100% - ((var(--cols) - 1)) * 1rem) / var(--cols));
-        max-width: 375px;
-        filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
+    width: calc((100% - ((var(--cols) - 1)) * 1rem) / var(--cols));
+    max-width: 375px;
+    filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.25));
 
-        .pkn-fp-button {
-            padding-bottom: 100%;
-            position: relative;
+    .pkn-fp-button {
+      padding-bottom: 100%;
+      position: relative;
 
-            .pkn-fp-button-inner a {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                padding: 1.25rem;
-                padding-bottom: 0.75rem;
-                background-color: var(--grey-20);
-                color: var(--primary);
-                text-align: center;
-                border-radius: 4px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+      .pkn-fp-button-inner a {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding: 1.25rem;
+        padding-bottom: 0.75rem;
+        background-color: var(--grey-20);
+        color: var(--primary);
+        text-align: center;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
-                @for $i from 1 through 6 {
-                    @if $i % 2==0 {
-                        &[data-button-id="#{$i}"] {
-                            background-color: var(--primary);
-                            color: white;
-                        }
-                    }
-                }
-
-                svg {
-                    width: 75%;
-                    height: auto;
-                    margin: auto;
-                }
-
-                .pkn-fp-button-title h3 {
-                    font-family: "Futura-condensed";
-                    text-transform: uppercase;
-                    font-weight: 400;
-                    letter-spacing: 0.05em;
-                }
+        @for $i from 1 through 6 {
+          @if $i % 2==0 {
+            &[data-button-id="#{$i}"] {
+              background-color: var(--primary);
+              color: white;
             }
+          }
         }
+
+        svg {
+          width: 75%;
+          height: auto;
+          margin: auto;
+        }
+
+        .pkn-fp-button-title h3 {
+          font-family: "Futura-condensed";
+          text-transform: uppercase;
+          font-weight: 400;
+          letter-spacing: 0.05em;
+        }
+      }
     }
+  }
 }

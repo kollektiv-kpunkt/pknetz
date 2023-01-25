@@ -1,6 +1,6 @@
 <div class="pkn-fp-heroine-wrapper">
     <div class="pkn-fp-carousel-outer">
-        <div class="pkn-fp-carousel-slides relative">
+        <div class="pkn-fp-carousel-slides relative overflow-x-hidden">
             <?php
             $slides = get_field('slides');
             $i = 1;
@@ -14,11 +14,11 @@
                     break;
                 endswitch;
             ?>
-            <div class="pkn-fp-slide absolute top-0 left-0 <?= ($i == 1) ? "pkn-slide-active" : "" ?>">
+            <div class="pkn-fp-slide cursor-pointer absolute top-0 left-0 <?= ($i == 1) ? "pkn-slide-active" : "" ?>" data-target-url="<?= $url ?>">
                 <?php
                 if ($slide["image"]) {
                     $image = $slide["image"]["ID"];
-                    $image_html = wp_get_attachment_image($image, 'full');
+                    $image_html = wp_get_attachment_image($image, 'medium_large');
                 } else {
                     $template_dir = get_template_directory_uri();
                     $image_html = <<<EOD
@@ -41,10 +41,10 @@
         </div>
         <div class="pkn-fp-pagination">
             <?php
-            $i = 1;
+            $i = 0;
             foreach ($slides as $slide) :
             ?>
-            <div class="pkn-fp-pagination-item<?= ($i == 1) ? " pkn-pagination-item-active" : "" ?>"></div>
+            <div class="pkn-fp-pagination-item<?= ($i == 0) ? " pkn-pagination-item-active" : "" ?>" data-slide-id="<?= $i ?>"></div>
             <?php
             $i++;
             endforeach;
